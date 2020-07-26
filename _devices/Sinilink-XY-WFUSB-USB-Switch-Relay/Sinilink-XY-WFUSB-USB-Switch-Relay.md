@@ -8,7 +8,8 @@ standard: global
 This device can be found on [Aliexpress](https://www.aliexpress.com/wholesale?SearchText=Sinilink+XY-WFUSB)
 for about 5 USD.
 
- <img src="Sinilink.png" alt="Product Image" width="250px" />
+![alt text](Sinilink.png "Product Image")
+![alt text](Sinilink_bare.png "Bare PCB")
 
 ## Flashing
 
@@ -26,7 +27,6 @@ side of the board.
 
 GPIO0 has to be connected to GND to enter programming mode.
 
-
 ## GPIO Pinout
 
 | Pin    | Function                    |
@@ -38,7 +38,6 @@ GPIO0 has to be connected to GND to enter programming mode.
 | GPIO05 | Relay and Red LED           |
 | GPIO14 | Green LED                   |
 | GPIO16 | Blue LED                    |
-
 
 ## Basic Config
 
@@ -121,6 +120,6 @@ binary_sensor:
 
 ## Useful links
 
-* Tasmota page: https://templates.blakadder.com/sinilink_XY-WFUSB.html
-* Andreas Spiess' review and guide: https://www.youtube.com/watch?v=lrHhn2AVzSA
-* Scargill's Tech Blog: https://tech.scargill.net/aliexpress-sinilink-wifi-usb-controller/
+* [Tasmota page](https://templates.blakadder.com/sinilink_XY-WFUSB.html)
+* [Andreas Spiess' review and guide](https://www.youtube.com/watch?v=lrHhn2AVzSA)
+* [Scargill's Tech Blog](https://tech.scargill.net/aliexpress-sinilink-wifi-usb-controller/)
