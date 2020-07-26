@@ -118,6 +118,55 @@ binary_sensor:
       - switch.toggle: "${devicename}_relay"
 ```
 
+If the USB Relay controls a light, it can also be implemented like this:
+
+```yaml
+output:
+  # Relay
+  - platform: gpio
+    id: relay
+    pin: GPIO5
+
+  # Green LED
+  - platform: gpio
+    pin: GPIO14
+    id: green_led
+    inverted: true # start on
+
+  # Binary Output template to link relay and green LED states
+  # LED is on when relay is off
+  - platform: template
+    type: binary
+    id: "${devicename}_relay"
+    write_action:
+      if:
+        condition:
+          lambda: return state;
+        then:
+          - output.turn_on: relay
+          - output.turn_on: green_led
+        else:
+          - output.turn_off: relay
+          - output.turn_off: green_led
+
+# Button
+binary_sensor:
+  - platform: gpio
+    id: button
+    pin:
+      number: GPIO04
+      mode: INPUT_PULLUP
+      inverted: True
+    on_press:
+      light.toggle: $devicename
+
+light:
+  - platform: binary
+    name: $upper_devicename
+    id: $devicename
+    output: "${devicename}_relay"
+```
+
 ## Useful links
 
 * [Tasmota page](https://templates.blakadder.com/sinilink_XY-WFUSB.html)
